@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "File2Package"
+authors = [{name = "KOLANICH"}]
+description = "Returns a package given filename"
+readme = "ReadMe.md"
+keywords = ["package", "location"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+dependencies = [
+	"PackageRef[versioned] @ git+https://gitlab.com/KOLANICH/PackageRef.py.git",
+	"datrie @ https://gitlab.com/KOLANICH-subgroups/packages/datrie/-/jobs/artifacts/master/raw/wheels/datrie-0.CI_python-py3-none-any.whl?job=build",
+	"MempipedPath @ git+https://gitlab.com/KOLANICH/MempipedPath.py.git",
+	"pantarei @ git+https://gitlab.com/KOLANICH/pantarei.py.git",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+byName = ["appdirs @ git+https://github.com/ActiveState/appdirs.git"]
+
+[project.urls]
+Homepage = "https://github.com/File2Package/File2Package.py"
+
+[tool.setuptools]
+zip-safe = true
+packages = ["File2Package"]
+
+[tool.setuptools_scm]
